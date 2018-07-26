@@ -2,15 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Actor : MonoBehaviour
+{
+	private bool alive = true;
+    private float health = 100f;
+    private string myName = "Actor";
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void damage(float damage)
+    {
+        health -= damage;
+        if (health <= 0f)
+        {
+            die();
+        }
+    }
+
+    private void die()
+    {
+		alive = false;
+    }
 }
